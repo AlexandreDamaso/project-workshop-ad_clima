@@ -8,9 +8,14 @@
       content="Consulte as condições climáticas atuais de uma cidade."
     />
     <title>AD Clima</title>
+    <link rel="icon" type="image/x-icon" href="./public/favicon.ico" />
   </head>
   <body>
     <header>
+      <div id="logo-title">
+        <img id="logo-title-img" src="./src/assets/logo_ad.png" alt="Logo AD Clima" />
+        Clima
+      </div>
       <h1 class="visually-hidden">Clima</h1>
       <form id="search-form" role="search">
         <label for="city-input">Nome da cidade</label>
@@ -19,7 +24,7 @@
           name="city"
           type="search"
           autocomplete="address-level2"
-          placeholder="Digite sua cidade e veja o tempo."
+          placeholder="Digite o nome da cidade."
         />
         <button id="search-button" type="submit">Buscar</button>
       </form>
