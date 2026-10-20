@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Consulte as condições climáticas atuais de uma cidade."
+    />
+    <title>AD Clima</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="visually-hidden">Clima</h1>
+      <form id="search-form" role="search">
+        <label for="city-input">Nome da cidade</label>
+        <input
+          id="city-input"
+          name="city"
+          type="search"
+          autocomplete="address-level2"
+          placeholder="Digite sua cidade e veja o tempo."
+        />
+        <button id="search-button" type="submit">Buscar</button>
+      </form>
+    </header>
+
+    <main>
+      <p id="search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+
+      <section id="empty-state" aria-labelledby="empty-state-title">
+        <h2 id="empty-state-title">Pesquise uma cidade</h2>
+        <p>Informe o nome de uma cidade para consultar o clima atual.</p>
+      </section>
+
+      <section id="loading-state" aria-labelledby="loading-title" hidden>
+        <h2 id="loading-title">Buscando condições atuais</h2>
+        <p role="status" aria-live="polite">Aguarde enquanto consultamos o clima.</p>
+      </section>
+
+      <section id="error-state" aria-labelledby="error-title" hidden>
+        <h2 id="error-title">Não foi possível consultar o clima</h2>
+        <p id="error-message">
+          Verifique o nome da cidade e tente novamente.
+        </p>
+      </section>
+
+      <section id="weather-result" aria-labelledby="result-title" hidden>
+        <aside aria-label="Condição atual">
+          <h2 id="result-title">
+            <span id="city-name"></span>
+            <span id="country-code"></span>
+          </h2>
+          <p>
+            <span id="temperature"></span>
+            <span id="temperature-unit"></span>
+          </p>
+          <p id="local-date"></p>
+          <p id="day-period"></p>
+          <p id="weather-description"></p>
+        </aside>
+
+        <section aria-label="Métricas do clima">
+          <dl>
+            <div>
+              <dt>Umidade relativa</dt>
+              <dd>
+                <span id="relative-humidity"></span>
+                <span id="relative-humidity-unit"></span>
+              </dd>
+            </div>
+            <div>
+              <dt>Sensação térmica</dt>
+              <dd>
+                <span id="apparent-temperature"></span>
+                <span id="apparent-temperature-unit"></span>
+              </dd>
+            </div>
+            <div>
+              <dt>Probabilidade de precipitação</dt>
+              <dd>
+                <span id="precipitation-probability"></span>
+                <span id="precipitation-probability-unit"></span>
+              </dd>
+            </div>
+            <div>
+              <dt>Vento</dt>
+              <dd>
+                <span id="wind-speed"></span>
+                <span id="wind-speed-unit"></span>
+                <span aria-hidden="true"> / </span>
+                <span id="wind-direction"></span>
+                <span id="wind-direction-unit"></span>
+              </dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
